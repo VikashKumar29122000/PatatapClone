@@ -8,13 +8,121 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.0/howler.js"></script>
     <script type="text/javascript" src="lib/paper-full.min.js"></script>
     <script type="text/paperscript" canvas="myCanvas">
+   
+        var keyData= {
+            a:{
+                sound : new Howl({src: ["sounds/clay.mp3"]}),
+                color : '#eb4034'
+            },
+            b:{
+                sound : new Howl({src: ["sounds/bubbles.mp3"]}),
+                color : '#9e9a99'
+            },
+            c:{
+                sound : new Howl({src: ["sounds/confetti.mp3"]}),
+                color : '#f7ec19'
+            },
+            d:{
+                sound : new Howl({src: ["sounds/corona.mp3"]}),
+                color : '#67c904'
+            },
+            e:{
+                sound : new Howl({src: ["sounds/dotted-spiral.mp3"]}),
+                color : '#58a66d'
+            },
+            f:{
+                sound : new Howl({src: ["sounds/flash-1.mp3"]}),
+                color : '#0ff576'
+            },
+            g:{
+                sound : new Howl({src: ["sounds/flash-2.mp3"]}),
+                color : '#07e8ce'
+            },
+            h:{
+                sound : new Howl({src: ["sounds/flash-3.mp3"]}),
+                color : '#0f475c'
+            },
+            i:{
+                sound : new Howl({src: ["sounds/glimmer.mp3"]}),
+                color : '#0f65ba'
+            },
+            j:{
+                sound : new Howl({src: ["sounds/moon.mp3"]}),
+                color : '#0a2152'
+            },
+            k:{
+                sound : new Howl({src: ["sounds/pinwheel.mp3"]}),
+                color : '#c07bed'
+            },
+            l:{
+                sound : new Howl({src: ["sounds/piston-1.mp3"]}),
+                color : '#30296b'
+            },
+            m:{
+                sound : new Howl({src: ["sounds/piston-2.mp3"]}),
+                color : '#ed1adf'
+            },
+            n:{
+                sound : new Howl({src: ["sounds/piston-3.mp3"]}),
+                color : '#cc1893'
+            },
+            o:{
+                sound : new Howl({src: ["sounds/prism-1.mp3"]}),
+                color : '#f51643'
+            },
+            p:{
+                sound : new Howl({src: ["sounds/prism-2.mp3"]}),
+                color : '#bf0b0b'
+            },
+            q:{
+                sound : new Howl({src: ["sounds/prism-3.mp3"]}),
+                color : '#fced0f'
+            },
+            r:{
+                sound : new Howl({src: ["sounds/splits.mp3"]}),
+                color : '#26632d'
+            },
+            s:{
+                sound : new Howl({src: ["sounds/squiggle.mp3"]}),
+                color : '#213604'
+            },
+            t:{
+                sound : new Howl({src: ["sounds/strike.mp3"]}),
+                color : '#eb0578'
+            },
+            u:{
+                sound : new Howl({src: ["sounds/suspension.mp3"]}),
+                color : '#074ff5'
+            },
+            v:{
+                sound : new Howl({src: ["sounds/timer.mp3"]}),
+                color : '#b787e8'
+            },
+            w:{
+                sound : new Howl({src: ["sounds/ufo.mp3"]}),
+                color : '#93bf6f'
+            },
+            x:{
+                sound : new Howl({src: ["sounds/veil.mp3"]}),
+                color : '#f78c0a'
+            },
+            y:{
+                sound : new Howl({src: ["sounds/wipe.mp3"]}),
+                color : '#e35522'
+            },
+            z:{
+                sound : new Howl({src: ["sounds/zig-zag.mp3"]}),
+                color : '#101d33'
+            }
+        }
         var circles=[]; 
         function onKeyDown(event) {
+            keyData[event.key].sound.play();
             var maxPoint=new Point(view.size.width,view.size.height);
             var randomPoint=Point.random();
             var point = maxPoint*randomPoint;
             var newCircle=new Path.Circle(point, 500);
-            newCircle.fillColor = 'green';
+            newCircle.fillColor = keyData[event.key].color;
             circles.push(newCircle); 
         }
         
