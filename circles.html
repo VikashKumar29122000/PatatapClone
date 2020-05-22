@@ -117,13 +117,17 @@
         }
         var circles=[]; 
         function onKeyDown(event) {
-            keyData[event.key].sound.play();
-            var maxPoint=new Point(view.size.width,view.size.height);
-            var randomPoint=Point.random();
-            var point = maxPoint*randomPoint;
-            var newCircle=new Path.Circle(point, 500);
-            newCircle.fillColor = keyData[event.key].color;
-            circles.push(newCircle); 
+            if((event.key.charCodeAt(0)>=97)&&(event.key.charCodeAt(0)<=122))
+            {
+                keyData[event.key].sound.play();
+                var maxPoint=new Point(view.size.width,view.size.height);
+                var randomPoint=Point.random();
+                var point = maxPoint*randomPoint;
+                var newCircle=new Path.Circle(point, 500);
+                newCircle.fillColor = keyData[event.key].color;
+                circles.push(newCircle); 
+            }
+            
         }
         
         function onFrame(event){
